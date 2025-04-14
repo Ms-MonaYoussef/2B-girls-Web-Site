@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link href="form design.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to the <br> Travelling Wizard </h1>
+        <form id="registerForm" name="form1" method="post">
+            
+            <div class="input-container">
+                <i class="fa fa-user icon"></i>
+                <input type="text" name="text3" class="input-field" id="username" placeholder="Username" >
+            </div>
+
+            <div class="input-container">
+                <i class="fa fa-envelope icon"></i>
+                <input type="email" class="input-field" id="email" placeholder="Email" name="email">
+            </div>
+
+            <div class="input-container">
+                <i class="fa fa-key icon"></i>
+                <input type="password" name="psw" class="input-field" id="text1" placeholder="Password">
+            </div>
+
+            <div class="input-container">
+                <i class="fa fa-key icon"></i>
+                <input type="password" name="confirmPsw" class="input-field" id="text2" placeholder="Confirm Password">
+            </div>
+
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="button" class="btn" value="Login" onclick="handleLogin();">
+
+
+
+            <input type="submit" value="Register" class="btn" onclick="return req();">
+            <input type="button" value="Reset" class="btn" onclick="resetForm()">
+            <br><br>
+
+            <label><input type="checkbox" checked="checked" name="remember"> Remember me</label>
+        </form>
+    </div>
+
+
+<script>
+  function checkPasswordsMatch() {
+    const password = document.getElementById("text1").value;
+    const confirmPassword = document.getElementById("text2").value;
+    
+    if (password.trim() === "" || confirmPassword.trim() === "") {
+      alert("Password and confirmation are required.");
+      return false;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return false;
+    }
+
+    return true;
+  }
+
+  function checkUsername() {
+    const username = document.getElementById("username").value;
+    if (username.trim() === "") {
+      alert("Username is required.");
+      return false;
+    }
+    return true;
+  }
+
+  function checkEmail() {
+    const email = document.getElementById("email").value;
+    if (email.trim() === "") {
+      alert("Email is required.");
+      return false;
+    }
+    return true;
+  }
+
+  function handleLogin() {
+    const isUsernameValid = checkUsername();
+    const isEmailValid = checkEmail();
+    const isPasswordValid = checkPasswordsMatch();
+
+    if (isUsernameValid && isEmailValid && isPasswordValid) {
+      // ✅ All validations passed, move to next page
+      window.location.href = "Map Page.html";
+    }
+  }
+  function resetForm() {
+            document.getElementById("registerForm").reset();
+        }
+</script>
+
+</body>
+</html>
