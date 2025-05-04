@@ -12,6 +12,7 @@
         <h1>Interactive Map of Europe</h1>
                     <!-- Navigation Button -->
     <button onclick="budget()" class="nav-button">Go to Budget Page</button>
+    <button onclick="gallery()" class="nav-button">Go to Gallery Page</button>
         <h2>Country Information</h2>
 
         <div id="infoBox" class="editable"></div>
@@ -19,10 +20,8 @@
         <div class="map-container">
             <img src="Europe Map.png" alt="Europe Map">
 
-            <button class="country-button" style="top: 465px; left: 45%;" onclick="showInfo('Italy')">Italy</button>
-            <button class="country-button" style="top: 420px; left: 22%;" onclick="showInfo('France')">France</button>
-            <button class="country-button" style="top: 370px; left: 35%;" onclick="showInfo('Germany')">Germany</button>
-
+            <button class="country-button" style="top: 500px; left: 50%;" onclick="showInfo('Italy')">Italy</button>
+            
         </div>
     </div>
 
@@ -32,37 +31,28 @@
         }
 
         function showInfo(country) {
-            let c_area, c_citiesavailabe, c_currency, c_population, c_sites;
+            let c_area, c_sites, c_currency, c_population;
 
             if (country === "Italy") {
                 c_area = "294,140 Km²";  
-                c_citiesavailabe = "Rome, Milan, Folrence, Venice";
+                c_sites = "Colosseum, Cathedral of Santa Maria del Fiore, Tower of Pisa, Vatican Museums";
                 c_currency = "Euro";
                 c_population= "59,189,651";
-                c_sites="Colosseum, Cathedral of Santa Maria del Fiore, Tower of Pisa, Vatican Museums";
 
             } 
-            else if (country === "France") {  
-                c_area = "551,695 km²";
-                c_citiesavailabe = "Paris, Marseille, Toulouse";
-                c_currency = "Euro";
-                c_sites="Louvre Museum, Eiffel tower, Arc de triomphe, Notre-Dame Cathedral of Paris";
-            }
-            else if (country === "Germany") {  
-                c_area = "357,592 km²";
-                c_citiesavailabe = "Berlin, Hamburg, Frankfurt, Munchen";
-                c_currency = "Euro";
-                c_sites="Neuschwanstein Castle, Brandenburg Gate, Marienplatz, Miniatur Wunderland";
+            else if (country === "Nigeria") {  
+                c_area = "923,768 km²";
+                c_sites = "Zuma Rock, Yankari National Park";
+                c_currency = "Naira";
             }
 
             document.getElementById("infoBox").innerHTML = 
                 `<strong>The country is:</strong> ${country}<br>
                  <strong>Area:</strong> ${c_area}<br>
-                 <strong>cities availabe:</strong> ${c_citiesavailabe}<br>
-                 <strong>Currency:</strong> ${c_currency}<br>
-                 <strong>Sites:</strong> ${c_sites}`;
+                 <strong>Sites:</strong> ${c_sites}<br>
+                 <strong>Currency:</strong> ${c_currency}`;
         }
-                function gallery() {
+        function gallery() {
     window.location.href = "Gallery Page.html"; // Redirect to the gallery page
 }
     </script>
